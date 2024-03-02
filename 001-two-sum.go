@@ -16,6 +16,8 @@ import (
 
 // Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
+// Link: https://leetcode.com/problems/two-sum/description/
+
 func main() {
 	fmt.Println(twoSum([]int{3,2,4}, 6))
 	fmt.Println(optimizeTwoSum([]int{3,2,4}, 6))
