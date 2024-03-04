@@ -21,19 +21,19 @@ import (
 // Link: https://leetcode.com/problems/squares-of-a-sorted-array/
 
 func main() {
-	fmt.Println(sortedSquares([]int{-4,-1,0,3,10}))
-	fmt.Println(optimizeSortedSquares([]int{-4,-1,0,3,10}))
+	fmt.Println(sortedSquares([]int{-4, -1, 0, 3, 10}))
+	fmt.Println(optimizeSortedSquares([]int{-4, -1, 0, 3, 10}))
 }
 
 func sortedSquares(nums []int) []int {
-	squareNumber := []int{};
+	squareNumber := []int{}
 
 	for i := 0; i < len(nums); i++ {
 		squareNumber = append(squareNumber, nums[i]*nums[i])
 	}
 
 	for i := 0; i < len(squareNumber); i++ {
-		for j := i+1; j < len(squareNumber); j++ {
+		for j := i + 1; j < len(squareNumber); j++ {
 			if squareNumber[i] > squareNumber[j] {
 				squareNumber[i], squareNumber[j] = squareNumber[j], squareNumber[i]
 			}
@@ -44,25 +44,25 @@ func sortedSquares(nums []int) []int {
 }
 
 func optimizeSortedSquares(nums []int) []int {
-  squareNumber := make([]int, len(nums))
-  
-  left := 0
-  right := len(nums) - 1
-  index := len(nums) - 1
-  
-  for left <= right {
-    leftSquare := nums[left] * nums[left]
-    rightSquare := nums[right] * nums[right]
-    
-    if leftSquare > rightSquare {
-      squareNumber[index] = leftSquare
-      left++
-    } else {
-      squareNumber[index] = rightSquare
-      right--
-    }
-    index--
-  }
-  
-  return squareNumber
+	squareNumber := make([]int, len(nums))
+
+	left := 0
+	right := len(nums) - 1
+	index := len(nums) - 1
+
+	for left <= right {
+		leftSquare := nums[left] * nums[left]
+		rightSquare := nums[right] * nums[right]
+
+		if leftSquare > rightSquare {
+			squareNumber[index] = leftSquare
+			left++
+		} else {
+			squareNumber[index] = rightSquare
+			right--
+		}
+		index--
+	}
+
+	return squareNumber
 }

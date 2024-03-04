@@ -19,27 +19,27 @@ import (
 // Link: https://leetcode.com/problems/two-sum/description/
 
 func main() {
-	fmt.Println(twoSum([]int{3,2,4}, 6))
-	fmt.Println(optimizeTwoSum([]int{3,2,4}, 6))
+	fmt.Println(twoSum([]int{3, 2, 4}, 6))
+	fmt.Println(optimizeTwoSum([]int{3, 2, 4}, 6))
 }
 
 func twoSum(nums []int, target int) [2]int {
 	result := [2]int{}
 
 	for i := 0; i < len(nums); i++ {
-			for j := 0; j < len(nums); j++ {
-					if i == j {
-							continue;
-					}
-
-					if nums[i] + nums[j] == target {
-							result[1] = i;
-							result[0] = j;
-					}
+		for j := 0; j < len(nums); j++ {
+			if i == j {
+				continue
 			}
+
+			if nums[i]+nums[j] == target {
+				result[1] = i
+				result[0] = j
+			}
+		}
 	}
 
-	return result;
+	return result
 }
 
 func optimizeTwoSum(nums []int, target int) [2]int {
@@ -47,15 +47,15 @@ func optimizeTwoSum(nums []int, target int) [2]int {
 
 	m := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
-			m[nums[i]] = i
+		m[nums[i]] = i
 	}
 
 	for i := 0; i < len(nums); i++ {
-			if _, ok := m[target - nums[i]]; ok && m[target - nums[i]] != i {
-					result[0] = i
-					result[1] = m[target - nums[i]]
-					break
-			}
+		if _, ok := m[target-nums[i]]; ok && m[target-nums[i]] != i {
+			result[0] = i
+			result[1] = m[target-nums[i]]
+			break
+		}
 	}
 
 	return result
